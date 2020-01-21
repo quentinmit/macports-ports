@@ -1,0 +1,40 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+
+PortSystem          1.0
+PortGroup           python 1.0
+
+set _name           argparse-manpage
+set _n              [string index ${_name} 0]
+
+name                py-argparse-manpage
+version             1.3
+platforms           darwin
+supported_archs     noarch
+license             Apache-2
+
+maintainers         {mit.edu:quentin @quentinmit} openmaintainer
+
+description         Automatically build manpage from argparse
+
+long_description    \
+    Library and command-line tool to generate manpages from argparse
+
+homepage            https://github.com/praiskup/argparse-manpage/
+master_sites        https://pypi.python.org/packages/source/${_n}/${_name}/
+distname            ${_name}-${version}
+
+checksums           rmd160  9908bf33eaec7a0f595f6d957ce9c1fc3e8c5891 \
+                    sha256  2ef0c32a6ee02d7ea0605d73075ce562ac791cc386cf9060bd40166dcfc9a6a7 \
+		    size    32305
+
+python.versions     27 36 37
+
+if {${name} ne ${subport}} {
+    depends_build-append    port:py${python.version}-setuptools
+
+    livecheck.type  none
+} else {
+    livecheck.type  regex
+    livecheck.url   [lindex ${master_sites} 0]
+    livecheck.regex ">${_name}-(\\d+(\\.\\d+)+)\\${extract.suffix}<"
+}
