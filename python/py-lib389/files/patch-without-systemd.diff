@@ -1,0 +1,18 @@
+--- lib389/paths.py.orig	2019-12-06 15:45:27.000000000 -0500
++++ lib389/paths.py	2020-01-21 01:37:00.000000000 -0500
+@@ -177,15 +177,6 @@
+ 
+     @property
+     def with_systemd(self):
+-        if self._defaults_cached is False:
+-            self._read_defaults()
+-            self._validate_defaults()
+-        if self._is_container:
+-            # We never have systemd in a container, so check the marker.
+-            return False
+-        if self._config.has_option(SECTION, 'with_systemd'):
+-            if self._config.get(SECTION, 'with_systemd') == '1':
+-                return True
+         return False
+ 
+     @property

@@ -1,0 +1,22 @@
+--- setup.py.orig	2019-12-06 15:45:27.000000000 -0500
++++ setup.py	2020-01-21 01:13:54.000000000 -0500
+@@ -57,15 +57,15 @@
+     packages=find_packages(exclude=['tests*']),
+ 
+     # find lib389/clitools -name ds\* -exec echo \''{}'\', \;
+-    data_files=[
+-        ('/usr/sbin/', [
++    scripts=[
+             'cli/dsctl',
+             'cli/dsconf',
+             'cli/dscreate',
+             'cli/dsidm',
+             'cli/dscontainer',
+-            ]),
+-        ('/usr/share/man/man8', [
++            ],
++    data_files=[
++        ('share/man/man8', [
+             'man/dsctl.8',
+             'man/dsconf.8',
+             'man/dscreate.8',
