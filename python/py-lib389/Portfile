@@ -6,7 +6,7 @@ PortGroup           python 1.0
 set _name           389-ds-base
 
 name                py-lib389
-version             1.4.2.5
+version             1.4.4.3
 categories-append   net
 platforms           darwin
 supported_archs     noarch
@@ -14,7 +14,7 @@ license             GPL-2
 
 maintainers         {mit.edu:quentin @quentinmit} openmaintainer
 
-description         Tools and libraries for testing 389 Directory Server
+description         Tools and libraries for testing and managing 389 Directory Server
 
 long_description    ${description}
 
@@ -23,13 +23,12 @@ master_sites	    https://releases.pagure.org/389-ds-base/
 distname	    ${_name}-${version}
 use_bzip2	    yes
 
-checksums           rmd160  e28e2a0153e4e82ac139229ff6dceeeb2c53de12 \
-                    sha256  e48488cc8f6fd13d189fa8bfd953008077952f037933b1c224d0b5e59f514248 \
-		    size    9783331
+checksums           rmd160  4f63107f531da358ccbabf1fe702173bb336d387 \
+                    sha256  fcaf0f8f1583effcc04cf1c758576f3fcb171dfe77a4e35a4f5e3730131f5ce4 \
+                    size    8195672
 
 worksrcdir 	    ${distname}/src/lib389
 patchfiles	    patch-relative-paths.diff \
-		    patch-fix-replication.diff \
 		    patch-without-systemd.diff
 
 python.versions     37
